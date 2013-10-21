@@ -1,5 +1,5 @@
-Look at all these events!
+Let's avoid all these things!
 <% @events.each do |event| %>
-  <h1><%= event.title %></h1>
-
+  <li><%= link_to event.title, event %></li>
 <% end %> 
+
