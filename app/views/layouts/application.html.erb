@@ -13,7 +13,6 @@
  
     <!-- crowded logo -->
    <%= link_to 'Crowded', events_path, :class => "navbar-brand" %>
-    
  
     <!-- main nav toggler (show/hide) -->
     <a class="toggle-nav btn pull-left" href="#">
@@ -40,7 +39,7 @@
               </li>
               <li class="divider"></li>
               <li>
-              <%= button_to "Sign out", destroy_user_session_path, method: :destroy, :class => "icon-signout" %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "icon-signout" %>
               </li>
             </ul>
       </li>
@@ -55,13 +54,6 @@
     </form>
   </nav>
 </header>
-
-<% if notice %>
-  <p class="alert alert-notice"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-error"><%= alert %></p>
-<% end %>
 
 <div id="wrapper">
   <div id="main-nav-bg">
@@ -102,6 +94,12 @@
 </div>
 
 <section id="content">
+  <% if notice %>
+  <p class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-error"><%= alert %></p>
+<% end %>
 <%= yield %>
 </section>
 
