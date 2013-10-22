@@ -56,6 +56,9 @@ gem 'simple_form'
 #design
 gem "compass-rails", "~> 2.0.alpha.0"
 
+#search
+gem 'ransack'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
