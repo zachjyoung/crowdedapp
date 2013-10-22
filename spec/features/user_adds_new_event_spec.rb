@@ -12,7 +12,7 @@ let(:user) {FactoryGirl.create(:user)}
     sign_in_as(user)
     visit new_event_path
     fill_in 'Title', with: "Farmers Market" 
-    fill_in 'Severity', with: 3
+    select(2, :from =>  'Severity')
     fill_in 'Description', with: "The Kale isn't worth it!"
     click_on "Create Event"
 
@@ -20,6 +20,16 @@ let(:user) {FactoryGirl.create(:user)}
     expect(page).to have_content("Farmers Market")
     expect(new_event.title).to include("Farmers Market")
     
+  end
+
+   scenario 'user edits are created event' do 
+    prev_count = Event.count
+    sign_in_as(user)
+    visit edit_event_path
+    click_on "Edit Event"
+
+    expect(Event.count).to eql(prev_count)
+    expect(page).to have_content("can't be blank")
   end
 
   scenario 'user adds a non-valid event' do 

@@ -6,8 +6,34 @@
       </p>
 
       <p>
-        <strong>Description</strong>
+        <strong>Description:</strong>
         <%= @event.description %>
       </p>
+
+
+      <p>
+        <strong>Location:</strong>
+        <%= @event.location %>
+      </p>
+
+      <p>
+        <strong>Date:</strong>
+        <%= @event.date %>
+      </p>
+
+      <p>
+        <strong>Start Time:</strong>
+        <%= @event.start_time %>
+      </p>
+
+      <p>
+        <strong>End Time:</strong>
+        <%= @event.end_time %>
+      </p>
+
+      <%= button_to "Update Event", controller: "events", action: "edit", id: @event, :class => "btn btn-primary btn-lg" %>
+    
+
+
 
     
