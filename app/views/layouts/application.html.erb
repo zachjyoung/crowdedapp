@@ -8,15 +8,52 @@
 </head>
 <body>
 
+<header>
+  <nav class="navbar navbar-default">
+ 
+    <!-- application logo -->
+    <a class="navbar-brand" href="index.html">
+      <!-- application logo visible on large screens -->
+      <img width="81" height="21" class="logo" alt="Crowded" src="/assets/images/logo.svg">
+      <!-- application logo visible on small screens -->
+      <img width="21" height="21" class="logo-xs" alt="Crowded" src="/assets/images/logo_xs.svg">
+    </a>
+ 
+    <!-- main nav toggler (show/hide) -->
+    <a class="toggle-nav btn pull-left" href="#">
+      <i class="icon-reorder"></i>
+    </a>
+ 
+    <!-- dropdowns -->
+    <ul class="nav">
+ 
+      <!-- dark dropdown & user menu -->
+      <li class="dropdown dark user-menu">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <img width="23" height="23" alt="Mila Kunis" src="/assets/images/avatar.jpg">
+          <span class="user-name">Mila Kunis</span>
+          <b class="caret"></b>
+        </a>
+        <!-- ... -->
+      </li>
+    </ul>
+ 
+    <!-- search form - hidden on phone -->
+    <form action="search_results.html" class="navbar-form navbar-right hidden-xs" method="get">
+      <button class="btn btn-link icon-search" name="button" type="submit"></button>
+      <div class="form-group">
+        <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text">
+      </div>
+    </form>
+  </nav>
+</header>
+
 <ul>
   <li><%= link_to "Sign up", new_user_registration_path %></li>
   <li><%= link_to "Sign in", new_user_session_path %></li>
   <li><%= link_to 'Edit profile', edit_user_registration_path %> </li>
   <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-  <li><%= link_to "View All Events", events_path %></li>
-  <li><%= link_to "Add Event", new_event_path %></li>
 </ul>
-
 
 <% if notice %>
   <p class="alert alert-notice"><%= notice %></p>
@@ -25,8 +62,47 @@
   <p class="alert alert-error"><%= alert %></p>
 <% end %>
 
+<div id="wrapper">
+  <div id="main-nav-bg">
+  <nav id="main-nav">
+    <div class="navigation">
+   
+      <div class="search">
+        <form action="search_results.html" method="get">
+          <div class="search-wrapper">
+            <input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text">
+            <button class="btn btn-link icon-search" name="button" type="submit"></button>
+          </div>
+        </form>
+      </div>
+   
+      <!-- navigation shizzle -->
+      <ul class="nav nav-stacked">
+   
+        <li class="active">
+          <%= link_to events_path do  %>
+            <i class="icon-home"></i>
+            <span>Home</span>
+            <% end %>
+        </li>
+        
+        <li class="active">
+          <%= link_to new_event_path do  %>
+            <i class="icon-plus"></i>
+            <span>Add Event</span>
+            <% end %>
+        </li>
+      </ul>
 
+      </div>
+    </div>
+  </nav>
+  </div>
+</div>
+
+<section id="content">
 <%= yield %>
+</section>
 
 </body>
 </html>
