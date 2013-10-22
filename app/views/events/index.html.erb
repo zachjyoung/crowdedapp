@@ -29,7 +29,8 @@
                   <th><%= sort_link @search, :severity, "Severity" %></th>
       
                  <th><%= sort_link @search, :location, "Location" %></th>
-                  <th></th>
+                  
+                  <th><%= sort_link @search, :date, "Date" %></th>
                 </tr>
               </thead>
 
@@ -40,8 +41,10 @@
               <td><%= link_to(event.title, event) %></td>
 
               <td><%= link_to(event.severity, event) %></td>
-              
+
               <td><%= link_to(event.location, event) %></td>
+
+              <td><%= link_to(event.date, event) %></td>
 
               <tr>
               <% end %> 

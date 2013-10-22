@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20131022033209) do
     t.integer "severity"
     t.text    "description"
     t.string  "location"
-    t.integer "date"
-    t.integer "start_time"
-    t.integer "end_time"
+    t.date    "date"
+    t.time    "start_time"
+    t.time    "end_time"
   end
 
   create_table "users", force: true do |t|
