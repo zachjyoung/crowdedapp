@@ -12,6 +12,8 @@ let(:user) {FactoryGirl.create(:user)}
     sign_in_as(user)
     visit new_event_path
     fill_in 'Title', with: "Farmers Market" 
+    fill_in 'Latitude', with: '42.37934'
+    fill_in 'Longitude', with: '-71.21235'
     select(2, :from =>  'Severity')
     fill_in 'Description', with: "The Kale isn't worth it!"
     click_on "Create Event"

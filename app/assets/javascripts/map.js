@@ -15,6 +15,17 @@ var circle = L.circle([data.latitude, data.longitude], 500, {
 }).addTo(map);
 
 
+var popup = L.popup();
+
+
+
+map.on('click', function(e) {
+  $('#longitude').val(e.latlng.lng);
+  $('#latitude').val(e.latlng.lat);
+
+});
+
+
 });
 
 });
